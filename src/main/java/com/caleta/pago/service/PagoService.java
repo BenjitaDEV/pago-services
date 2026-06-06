@@ -2,6 +2,7 @@ package com.caleta.pago.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
@@ -19,7 +20,10 @@ public class PagoService {
     private final WebClient loteWebClient;
     private final WebClient capturaWebClient;
 
-    public PagoService(PagoRepository pagoRepository, WebClient loteWebClient, WebClient capturaWebClient) {
+    public PagoService(
+            PagoRepository pagoRepository,
+            @Qualifier("loteWebClient") WebClient loteWebClient,
+            @Qualifier("capturaWebClient") WebClient capturaWebClient) {
         this.pagoRepository = pagoRepository;
         this.loteWebClient = loteWebClient;
         this.capturaWebClient = capturaWebClient;
