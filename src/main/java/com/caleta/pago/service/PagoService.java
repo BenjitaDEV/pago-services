@@ -23,7 +23,7 @@ public class PagoService {
     public PagoService(
             PagoRepository pagoRepository,
             @Qualifier("loteWebClient") WebClient loteWebClient,
-            @Qualifier("capturaWebClient") WebClient CapturaWebClient) {
+            @Qualifier("CapturaWebClient") WebClient CapturaWebClient) {
         this.pagoRepository = pagoRepository;
         this.loteWebClient = loteWebClient;
         this.CapturaWebClient = CapturaWebClient;
