@@ -119,7 +119,6 @@ public class PagoController {
     public ResponseEntity<Pago> actualizarPago(
 
             @PathVariable Long id,
-
             @Valid
             @io.swagger.v3.oas.annotations.parameters.RequestBody(
                     description = "Datos para actualizar un pago",

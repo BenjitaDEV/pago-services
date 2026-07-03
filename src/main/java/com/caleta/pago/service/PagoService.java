@@ -18,15 +18,15 @@ public class PagoService {
 
     private final PagoRepository pagoRepository;
     private final WebClient loteWebClient;
-    private final WebClient capturaWebClient;
+    private final WebClient CapturaWebClient;
 
     public PagoService(
             PagoRepository pagoRepository,
             @Qualifier("loteWebClient") WebClient loteWebClient,
-            @Qualifier("capturaWebClient") WebClient capturaWebClient) {
+            @Qualifier("capturaWebClient") WebClient CapturaWebClient) {
         this.pagoRepository = pagoRepository;
         this.loteWebClient = loteWebClient;
-        this.capturaWebClient = capturaWebClient;
+        this.CapturaWebClient = CapturaWebClient;
     }
 
     public List<Pago> getPagos(){
@@ -67,7 +67,7 @@ public class PagoService {
         }
 
         //obtener captura
-        CapturaResponse captura = capturaWebClient.get()
+        CapturaResponse captura = CapturaWebClient.get()
             .uri("/{id}", lote.getCapturaId())
             .retrieve()
             .bodyToMono(CapturaResponse.class)
